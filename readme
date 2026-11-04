@@ -1,1 +1,8 @@
+This repository has the code, original data, and processed data used in the manuscript by DeLong et al in Ecology
+Publication data might be 2026 or 2027
 
+Data on barn owl diets come from the OS-Prey database (Uiterwaal et al 2026)
+Data on mammal body sizes come from EltonTraits (Wilman et al 2014)
+Data on mammal density come from Santini et al 2022
+
+Code was last run in Julia 1.13
