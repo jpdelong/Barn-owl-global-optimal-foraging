@@ -5,4 +5,6 @@ Data on barn owl diets come from the OS-Prey database (Uiterwaal et al 2026)
 Data on mammal body sizes come from EltonTraits (Wilman et al 2014)
 Data on mammal density come from Santini et al 2022
 
+The analysis script is "baow_optimal_foraging_analysis.jl".
+
 Code was last run in Julia 1.13
