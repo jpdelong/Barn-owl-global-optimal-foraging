@@ -26,17 +26,8 @@ Columns included from Olson et al 2001. We only used ecozone in this paper.
 --In breeding-bird-richness-raptors, we include the polyfid id and the total number of Accipitriformes, Falconiformes, and Strigiformes from BirdLife International 2022.
 
 --In dataset_density2.csv, we have taken available data from Santini, L., A. Benítez-López, C. F. Dormann, and M. A. J. Huijbregts. 2022. Population density estimates for terrestrial mammal species. Global Ecology and Biogeography 31:978–994.
-Please see original source for details.
+Please see original source for details. The file includes the taxonomic information and other details, we used the taxonomic information to match species and the density estimate in animals per square km.
 
-The file includes the following taxonomic information and other details:
-Order
-Family
-Order
-Family
-AcceptedGenus_COL
-AcceptedName_COL
-sp_id
-X
-Y
-Year
-Density_km
+--In Elton_traits_mammals.csv, the authors assembled a wide range of information. 
+Pleaes see original source for details. Wilman, H., J. Belmaker, J. Simpson, C. de la Rosa, M. M. Rivadeneira, and W. Jetz. 2014. EltonTraits 1.0: Species-level foraging attributes of the world’s birds and mammals. Ecology 95:2027–2027.
+We used the body mass information from this source and matched it to the OS-Prey data by species names. Some additional species and body mass were added by us.
