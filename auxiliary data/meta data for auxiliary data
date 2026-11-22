@@ -1,10 +1,10 @@
 In these files, we store dataset id, location, and data from different sources to pair with the raptors diets.
 
-We used a general id - polyfid - to connect all data. That variable is in all files except the biome file.
+--We used a general id - polyfid - to connect all data. That variable is in all files except the biome file.
 
-In POLYFID_locs.csv - we include the id and the dataset number from OS-Prey.
+--In POLYFID_locs.csv - we include the id and the dataset number from OS-Prey.
 
-In biomes.csv, we have pulled data and paired it with our diet datasets. The variables are:
+--In biomes.csv, we have pulled data and paired it with our diet datasets. The variables are:
 "DataSet" - id for diet in OS-Prey
 "lat" - latitude for diet in OS-Prey
 "lon" - longitude for diet in OS-Prey
@@ -19,10 +19,24 @@ Columns included from Olson et al 2001. We only used ecozone in this paper.
 "biome_n"
 "ecozone_n"
 
-In mammal-richness.csv, we include polyfid and the total number of mammal species as reported in IUCN 2025.
+--In mammal-richness.csv, we include polyfid and the total number of mammal species as reported in IUCN 2025.
 
-In mammal-richness_Rodentia_Eulipotyphla.csv, we include polyfid and the total number of just rodent and eulipotyphla species as reported in IUCN 2025, 
+--In mammal-richness_Rodentia_Eulipotyphla.csv, we include polyfid and the total number of just rodent and eulipotyphla species as reported in IUCN 2025, 
 
-In breeding-bird-richness-raptors, we include the polyfid id and the total number of Accipitriformes, Falconiformes, and Strigiformes from BirdLife International 2022.
+--In breeding-bird-richness-raptors, we include the polyfid id and the total number of Accipitriformes, Falconiformes, and Strigiformes from BirdLife International 2022.
 
+--In dataset_density2.csv, we have taken available data from Santini, L., A. Benítez-López, C. F. Dormann, and M. A. J. Huijbregts. 2022. Population density estimates for terrestrial mammal species. Global Ecology and Biogeography 31:978–994.
+Please see original source for details.
 
+The file includes the following taxonomic information and other details:
+Order
+Family
+Order
+Family
+AcceptedGenus_COL
+AcceptedName_COL
+sp_id
+X
+Y
+Year
+Density_km
