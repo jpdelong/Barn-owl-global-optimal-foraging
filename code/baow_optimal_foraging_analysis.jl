@@ -178,10 +178,6 @@ family_matrix = zeros(Float64, howmanystudies,size(sums_by_family,1))
 ###### step 4, # cycle through the datasets to generate ranks, slopes, and diversity metrics
 # ==========================================================================================
 
-# read in the posterior sample for the mammal density allometry
-# will eventually delete this
-#df_chains = CSV.read("Density_allometry_chain.csv", DataFrame)
-
 # initiate some reference states
 num_NE_diffs_over_zero = 0
 num_NE_diffs_tested = 0
