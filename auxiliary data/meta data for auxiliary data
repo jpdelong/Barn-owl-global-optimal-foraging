@@ -1,5 +1,28 @@
 In these files, we store dataset id, location, and data from different sources to pair with the raptors diets.
 
-We used a general id - polyfid - to connect all data. That variable is in all files.
+We used a general id - polyfid - to connect all data. That variable is in all files except the biome file.
+
+In POLYFID_locs.csv - we include the id and the dataset number from OS-Prey.
+
+In biomes.csv, we have pulled data and paired it with our diet datasets. The variables are:
+"DataSet" - id for diet in OS-Prey
+"lat" - latitude for diet in OS-Prey
+"lon" - longitude for diet in OS-Prey
+
+See the original source for full descriptions of ecoregion definitions: Olson, D. M., E. Dinerstein, E. D. Wikramanayake, N. D. Burgess, G. V. N. Powell, E. C. Underwood, J. A. D’amico, I. Itoua, H. E. Strand, J. C. Morrison, C. J. Loucks, T. F. Allnutt, T. H. Ricketts, Y. Kura, J. F. Lamoreux, W. W. Wettengel, P. Hedao, and K. R. Kassem. 2001. Terrestrial ecoregions of the world: A new map of life on Earth: A new global map of terrestrial ecoregions provides an innovative tool for conserving biodiversity. BioScience 51:933–938.
+
+Columns included from Olson et al 2001. We only used ecozone in this paper.
+"subbiome"
+"biome"
+"ecozone"
+"subbiome_n"
+"biome_n"
+"ecozone_n"
+
+In mammal-richness.csv, we include polyfid and the total number of mammal species as reported in IUCN 2025.
+
+In mammal-richness_Rodentia_Eulipotyphla.csv, we include polyfid and the total number of just rodent and eulipotyphla species as reported in IUCN 2025, 
+
+In breeding-bird-richness-raptors, we include the polyfid id and the total number of Accipitriformes, Falconiformes, and Strigiformes from BirdLife International 2022.
 
 
