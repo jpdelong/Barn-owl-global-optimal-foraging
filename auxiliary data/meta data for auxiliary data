@@ -1,1 +1,5 @@
+In these files, we store dataset id, location, and data from different sources to pair with the raptors diets.
+
+We used a general id - polyfid - to connect all data. That variable is in all files.
+
 
