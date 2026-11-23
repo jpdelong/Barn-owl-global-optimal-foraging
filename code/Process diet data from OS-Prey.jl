@@ -1,7 +1,7 @@
 # process the diet data from the OS-Prey database
 
+#### be sure to set up your path, modify one of these
 dir = "C:/Users/jdelong2/OneDrive - University of Nebraska/Projects in progress/Raptor foraging and diets/"
-
 dir = "C:/Users/johnp/Documents/GitHub/OSPrey-database/Barn owl optimal foraging manuscript"
 
 cd(dir)
@@ -56,14 +56,6 @@ df_meta[!, :ecozone] .= df_biome.ecozone # add the biome ecozone type to the met
     vec_mod = [x * suffix for x in mass_means_genus.Scientific for suffix in [" sp"]] # this appends "sp" to each genus
     mass_means_genus[!, :new_genus] .= vec_mod # add it to the data frame
 
-    #= family level
-    gd = groupby(df_mamms, [:Family])
-    mass_means_family = combine(gd, :BodyMassValue => mean)
-    rename!(mass_means_family, :Family => :Scientific)
-
-    df_mean_mass = append!(mass_means_family,mass_means_genus)
-    =#
-
 ###### pass in mammal masses
     unique_prey = unique(prey_sci_name) # how many unique prey are there?
     prey_name_Elton = df_mamms.SciName
@@ -113,7 +105,6 @@ df_mammal_richness = CSV.read("mammal-richness.csv",DataFrame) # read in the loc
 df_RE_richness = CSV.read("mammal-richness_Rodentia_Eulipotyphla.csv",DataFrame) # read in the location ID's
 df_raptor_richness = CSV.read("bird-breeding-richness_raptors.csv",DataFrame) # read in the location ID's
 
-
 ShannEnt = zeros(Float64, num_studies)
 DietRichness = zeros(Float64, num_studies)
 ShannEnt_rare = zeros(Float64, num_studies)
@@ -125,7 +116,7 @@ RaptorRichness = zeros(Float64, num_studies)
 
 # rarefaction target numbers
     rarefy_reps = 200
-    rarefy_to = 100
+    rarefy_to = 20
 
 for i = 1:num_studies
     println(i)
@@ -136,11 +127,6 @@ for i = 1:num_studies
     if !ismissing(counts_to_use[1])
         ShannEnt[i] = -sum(freqs_to_use .* log.(freqs_to_use)) # calculate Shannon entropy
         DietRichness[i] = length(counts_to_use)
-
-        #prey_to_use = prey_name(data_sets == i);
-        #class_to_use = prey_class(data_sets == i);
-        #mass_to_use = prey_mass_diet(data_sets == i);
-        #prey_id_level_to_use = prey_id_level(data_sets == i)
 
         # grab the mammal richness via the POLYFID
         diet_polyfid = df_polyfids.POLYFID[df_polyfids.DataSet .== i]
@@ -189,26 +175,6 @@ for i = 1:num_studies
     end
 end
 
-
-
-    #= now run it through df_mean_mass to assign mean genus or family body masses to prey identified to those levels
-    prey_mass_mean = df_mean_mass.BodyMassValue_mean
-    prey_name_mean = df_mean_mass.Scientific
-
-    for i = 1:length(unique_prey)
-        prey_row = findall(prey_name_mean .== unique_prey[i]) # grab the ith prey name from the unique list
-        mass_to_pass = prey_mass_mean[prey_row] # snag the mass of the prey in row i
-        matches = findall(prey_sci_name .== unique_prey[i]) # find where that prey occurs in df_diet
-        
-        if length(mass_to_pass) > 0 # only do this if there is an actual value in for mass
-            for j = 1:length(matches)
-                prey_mass_diet[matches[j]] = mass_to_pass[1] # pass the value to every row for that species
-            end
-        end
-    end
-
-    =#
-
 # build the barn owl specific diets overview
 df_baow_overview = select(df_meta,:DataSet,:RaptorScientificName,:Continent,:Num_obs,:PreyPerPellet,:ecozone)
 df_baow_overview[!, :ShannEnt_rare] .= ShannEnt_rare
@@ -219,7 +185,7 @@ df_baow_overview[!, :RaptorRichness] .= RaptorRichness
 
 df_baow_overview = df_baow_overview[occursin.("Tyto", df_baow_overview.RaptorScientificName), :] # reduce the data set to only rows that contain "Tyto"
 
-CSV.write("BarnOwlMeta_100.csv", df_baow_overview)
+CSV.write("BarnOwlMeta_20.csv", df_baow_overview)
 
 # check on effect of rarefaction
 f1 = scatter(DietRichness,ShannEnt)
@@ -234,4 +200,4 @@ df_baow[!, :PreyFamily] .= prey_family # add the prey matched body masses
 df_baow = df_baow[occursin.("Tyto", df_baow.RaptorScientificName), :] # reduce the data set to only rows that contain "Tyto"
 
 unique(df_baow.DataSet)
-CSV.write("BarnOwlDiets_100.csv", df_baow)
+CSV.write("BarnOwlDiets_20.csv", df_baow)
