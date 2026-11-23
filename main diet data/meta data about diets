@@ -1,0 +1,20 @@
+In this folder we store our downloaded copies of the OS-Prey database.
+
+All metadata and details for this database are stored in the original repository:
+https://knb.ecoinformatics.org/view/doi%3A10.5063%2FF15719JP
+
+Note that this database continues to be updated.
+
+We also store two files processed from the OS-Prey database: 
+BarnOwlDiet_20
+
+BarnOwlMeta_20
+Extracted from the OS-Prey meta file, we have added:
+ecozone - a code from the 
+ShannEnt_rare - Shannon entropy rarefied to 20 samples
+DietRichness_rare - rarefied to 20 samples count of prey types in diet
+Local_Richness - count of mammals occurring at the diet location
+RE_Richness - count of just rodents and euliptyphla occurring at the diet location
+Raptor_richness - count of raptor species occurring at the diet location
+
+Finally, we store a file that is made from the analysis script for running linear models: BarnOwlProcessed_20.csv, where the 20 is the rarefaction size
