@@ -7,6 +7,7 @@ Note that this database continues to be updated.
 
 We also store two files processed from the OS-Prey database: 
 BarnOwlDiet_20
+Extracted from the OS-Prey diet file, we added prey body mass (g)
 
 BarnOwlMeta_20
 Extracted from the OS-Prey meta file, we have added:
